@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MusicBites — Neon Search DJ</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#04050a; --card:#0f1724; --neon1:#00f0ff; --neon2:#ff4ecb; --accent:#ffd166;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Poppins",system-ui,Arial;color:#e6eef8;background:var(--bg);}
+.header, .search-wrap, .grid, .featured, footer{text-align:center;margin:10px auto;}
+.header h1{font-size:26px;margin:10px 0;}
+.search-wrap input{padding:10px;width:70%;border-radius:50px;border:none;outline:none;}
+.search-wrap button{padding:10px 16px;border-radius:50px;border:none;background:linear-gradient(90deg,var(--neon1),var(--neon2));color:#021017;font-weight:700;cursor:pointer;}
+.card{background:var(--card);border-radius:12px;padding:8px;margin:8px;display:inline-block;width:calc(33% - 16px);vertical-align:top;text-align:center;color:white;cursor:pointer;}
+.card img{width:100%;border-radius:8px;margin-bottom:6px;}
+.card p{margin:4px 0;}
+a.channel-link{display:inline-block;margin:12px 0;padding:8px 16px;border-radius:50px;border:none;background:linear-gradient(90deg,var(--neon1),var(--neon2));color:#021017;font-weight:700;text-decoration:none;}
+@media(max-width:900px){.card{width:calc(50% - 16px);}}
+@media(max-width:600px){.card{width:100%;}}
+.particles{position:fixed;left:0;top:0;right:0;bottom:0;pointer-events:none;z-index:0;}
+.note{position:absolute;opacity:0.12;font-size:22px;filter:blur(.6px);transform:translateY(0);animation:floatUp linear infinite;color:var(--neon1);}
+.note.p2{color:var(--neon2);opacity:0.10;font-size:30px;}
+@keyframes floatUp{from{transform:translateY(20vh) rotate(-10deg);opacity:0}10%{opacity:.9}to{transform:translateY(-30vh) rotate(20deg);opacity:0}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>MusicBites</h1>
+  <p>Neon search DJ • Shorts & videos • Keyboard Music Highlight</p>
+  <a href="https://www.youtube.com/@musicbites-dapkvstb" target="_blank" class="channel-link">Visit Channel</a>
+</div>
+
+<div class="search-wrap">
+  <input id="searchInput" placeholder="Search videos, shorts, tags...">
+  <button id="searchBtn">Search</button>
+</div>
+
+<h3>📂 All Videos & Shorts</h3>
+<div class="grid" id="videolist">
+  <!-- Videos (7) -->
+  <div class="card" data-title="Vasseegara Keyboard Cover" data-link="https://www.youtube.com/watch?v=gEhupNrt2_Y">
+    <img src="https://img.youtube.com/vi/gEhupNrt2_Y/hqdefault.jpg" alt="">
+    <p>Raja Raja Cholan — Keyboard Cover</p>
+  </div>
+
+  <div class="card" data-title="Raja Raja cholan naan keyboard cover" data-link="https://www.youtube.com/watch?v=4pMThs2DGuA">
+    <img src="https://img.youtube.com/vi/4pMThs2DGuA/hqdefault.jpg" alt="">
+    <p>Illa Thottu Thottu Pesum Sultana</p>
+  </div>
+
+  <div class="card" data-title="Thottu Thottu pesum sultana Keyboard Cover" data-link="https://www.youtube.com/watch?v=DLfuzNs-EHI">
+    <img src="https://img.youtube.com/vi/DLfuzNs-EHI/hqdefault.jpg" alt="">
+    <p>Vasseegara — Keyboard Cover</p>
+  </div>
+
+  <div class="card" data-title="Keyboard Motivation ApSCeV5bJdA" data-link="https://www.youtube.com/watch?v=ApSCeV5bJdA">
+    <img src="https://img.youtube.com/vi/ApSCeV5bJdA/hqdefault.jpg" alt="">
+    <p>Keyboard Motivation Full Video</p>
+  </div>
+
+  <div class="card" data-title="Keyboard Cover QlT9Mgr_maQ" data-link="https://www.youtube.com/watch?v=QlT9Mgr_maQ">
+    <img src="https://img.youtube.com/vi/QlT9Mgr_maQ/hqdefault.jpg" alt="">
+    <p>Keyboard Cover</p>
+  </div>
+
+  <div class="card" data-title="Mulumathi Keyboard N56gY_o5ioo" data-link="https://www.youtube.com/watch?v=N56gY_o5ioo">
+    <img src="https://img.youtube.com/vi/N56gY_o5ioo/hqdefault.jpg" alt="">
+    <p>Mulumathi Keyboard Cover</p>
+  </div>
+
+  <div class="card" data-title="National Anthem zpA3rbtX3Z8" data-link="https://www.youtube.com/watch?v=zpA3rbtX3Z8">
+    <img src="https://img.youtube.com/vi/zpA3rbtX3Z8/hqdefault.jpg" alt="">
+    <p>National Anthem</p>
+  </div>
+
+  <!-- Shorts (6) -->
+  <div class="card" data-title="Kanmani anbuden keyboard cover" data-link="https://www.youtube.com/watch?v=7-ePYdrJqLo">
+    <img src="https://img.youtube.com/vi/7-ePYdrJqLo/hqdefault.jpg" alt="">
+    <p>Short — 7-ePYdrJqLo</p>
+  </div>
+
+  <div class="card" data-title="Punnagai mannan bgm keyboard cover" data-link="https://www.youtube.com/watch?v=oq5c5YbMjpI">
+    <img src="https://img.youtube.com/vi/oq5c5YbMjpI/hqdefault.jpg" alt="">
+    <p>Short — oq5c5YbMjpI</p>
+  </div>
+
+  <div class="card" data-title="Kadhalar dhinam bgm keyboard cover" data-link="https://www.youtube.com/watch?v=9hniGDnKcjA">
+    <img src="https://img.youtube.com/vi/9hniGDnKcjA/hqdefault.jpg" alt="">
+    <p>Short — 9hniGDnKcjA</p>
+  </div>
+
+  <div class="card" data-title="Mouna ragam bgm keyboard cover" data-link="https://www.youtube.com/watch?v=SKvdsSoxQFo">
+    <img src="https://img.youtube.com/vi/SKvdsSoxQFo/hqdefault.jpg" alt="">
+    <p>Short — SKvdsSoxQFo</p>
+  </div>
+
+  <div class="card" data-title="Thottu thottu pesum sultana keyboard cover" data-link="https://www.youtube.com/watch?v=0AjtBpEpHSk">
+    <img src="https://img.youtube.com/vi/0AjtBpEpHSk/hqdefault.jpg" alt="">
+    <p>Short — 0AjtBpEpHSk</p>
+  </div>
+
+  <div class="card" data-title="Kokki bgm keyboard cover" data-link="https://www.youtube.com/watch?v=5Iw23STgqlU">
+    <img src="https://img.youtube.com/vi/5Iw23STgqlU/hqdefault.jpg" alt="">
+    <p>Short — 5Iw23STgqlU</p>
+  </div>
+</div>
+
+<div class="particles" id="particles"></div>
+<footer>© MusicBites • Neon Search DJ</footer>
+
+<audio id="bgAudio" src="/mnt/data/soft-default.mp3" loop preload="auto"></audio>
+
+<script>
+// Search functionality
+const searchInput = document.getElementById('searchInput');
+const searchBtn = document.getElementById('searchBtn');
+const cards = document.querySelectorAll('.card');
+
+function filter(q){
+  q = (q||'').trim().toLowerCase();
+  cards.forEach(c => {
+    const t = c.getAttribute('data-title').toLowerCase();
+    c.style.display = t.includes(q)? 'inline-block':'none';
+  });
+}
+
+searchInput.addEventListener('input', ()=>filter(searchInput.value));
+searchBtn.addEventListener('click', ()=>filter(searchInput.value));
+searchInput.addEventListener('keydown', (e)=>{ if(e.key==='Enter') filter(searchInput.value); });
+
+// Open YouTube on click
+cards.forEach(c=>{
+  c.addEventListener('click', ()=>{
+    const link = c.getAttribute('data-link');
+    window.open(link,'_blank');
+  });
+});
+
+// floating notes
+const particles = document.getElementById('particles');
+const notes = ['♪','♫','♩','♬'];
+function spawnNote(){
+  const n = document.createElement('div'); n.className='note';
+  if(Math.random()>0.7) n.classList.add('p2');
+  n.textContent = notes[Math.floor(Math.random()*notes.length)];
+  n.style.left=(Math.random()*100)+'%';
+  n.style.top=(60+Math.random()*30)+'%';
+  n.style.fontSize=(12+Math.random()*34)+'px';
+  n.style.animationDuration=(6+Math.random()*9)+'s';
+  particles.appendChild(n);
+  setTimeout(()=>n.remove(),15000);
+}
+setInterval(spawnNote,900);
+
+// audio controls
+const audio = document.getElementById('bgAudio');
+audio.volume=0.28;
+audio.play().catch(()=>console.log("Autoplay blocked. Click a card or button to start audio."));
+
+</script>
+</body>
+</html>
